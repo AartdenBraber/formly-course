@@ -7,13 +7,15 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { SelectFormlyComponent } from './form-field-types/select/select.component';
 
 export function minValidationMessage(err, field: FormlyFieldConfig) {
   console.log(err, field);
   return `Please provide a value bigger than ${err.min}. You provided ${err.actual}.`;
 }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SelectFormlyComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,9 +32,16 @@ export function minValidationMessage(err, field: FormlyFieldConfig) {
           message: minValidationMessage,
         },
       ],
+      types: [
+        {
+          name: 'my-autocomplete',
+          component: SelectFormlyComponent,
+        },
+      ],
     }),
     FormlyMaterialModule,
     BrowserAnimationsModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

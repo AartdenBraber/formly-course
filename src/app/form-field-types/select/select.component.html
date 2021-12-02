@@ -1,0 +1,7 @@
+<div class="mat-input-infox mat-form-field infix">
+  <ng-select [items]="castToAny(to.options) | async"
+             [placeholder]="to.label"
+             [bindValue]="to['bindValue']"
+             [formControl]="castToAny(formControl)"
+             [class.is-invalid]="showError"></ng-select>
+</div>

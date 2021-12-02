@@ -67,7 +67,7 @@ export class AppComponent {
     },
     {
       key: 'nationId',
-      type: 'select',
+      type: 'my-autocomplete',
       templateOptions: {
         label: 'Nation',
         options: this.dataService.getNations(),
