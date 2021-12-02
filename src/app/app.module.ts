@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SelectFormlyComponent } from './form-field-types/select/select.component';
+import { dataCyExtension } from './data-cy.formly-extension';
 
 export function minValidationMessage(err, field: FormlyFieldConfig) {
   console.log(err, field);
@@ -36,6 +37,12 @@ export function minValidationMessage(err, field: FormlyFieldConfig) {
         {
           name: 'my-autocomplete',
           component: SelectFormlyComponent,
+        },
+      ],
+      extensions: [
+        {
+          name: 'data-cy-extension',
+          extension: dataCyExtension,
         },
       ],
     }),
